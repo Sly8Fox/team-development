@@ -27,15 +27,22 @@ jobs:
         with:
           ref: 'dev'
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Change to server directory
+        run: cd server
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Install dependencies
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          
+          sudo apt install nodejs 
+          nodejs -v
+          sudo apt install npm
+          sudo npm install 
+
       # Runs a shell command which display current directory
       - name: Show current directory
         run: ls -lah
+
+  tests:
+    steps:
+      - name: Test run
+        run: npm run dev
