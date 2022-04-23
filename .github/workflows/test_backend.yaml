@@ -5,10 +5,10 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: 
-      - 'dev'
+      - 'backend'
   pull_request:
     branches: 
-      - 'ci/cd'
+      - 'dev'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,13 +25,41 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
-          ref: 'dev'
+          ref: 'backend'
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Change to server directory
+        run: cd server
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Install dependencies
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          sudo apt install nodejs 
+          nodejs -v
+          sudo apt install npm
+          sudo npm install 
+
+      # Runs a shell command which display current directory
+      - name: Show current directory
+        run: ls -lah
+
+  tests:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: 'dev'
+      # Runs a single command using the runners shell
+      - name: Change to server directory
+        run: cd server
+
+      # Runs a set of commands using the runners shell
+      - name: Install dependencies
+        run: |
+          sudo apt install nodejs 
+          nodejs -v
+          sudo apt install npm
+          sudo npm install 
+  
+      - name: Test run
+        run: npm run dev
