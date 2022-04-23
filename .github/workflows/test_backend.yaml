@@ -30,6 +30,10 @@ jobs:
       - name: Change to server directory
         run: cd server
 
+      # Runs a shell command which display current directory
+      - name: Show current directory
+        run: ls -lah
+
       # Runs a set of commands using the runners shell
       - name: Install dependencies
         run: |
@@ -38,9 +42,6 @@ jobs:
           sudo apt install npm
           sudo npm install 
 
-      # Runs a shell command which display current directory
-      - name: Show current directory
-        run: ls -lah
 
   tests:
     runs-on: ubuntu-18.04
