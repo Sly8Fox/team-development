@@ -68,4 +68,4 @@ jobs:
       - name: Test run
         run: |
           cd server
-          npm run dev
+          (npm run start&)
