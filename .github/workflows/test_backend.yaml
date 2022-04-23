@@ -8,7 +8,7 @@ on:
       - 'backend'
   pull_request:
     branches: 
-      - 'dev'
+      - 'backend'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -41,11 +41,7 @@ jobs:
           nodejs -v
           sudo apt install npm
           sudo npm install 
-          apt install -y --no-install-recommends postgresql-client
-          apt install postgresql -y postgresql-contrib
-          sudo service postgresql start
-          sudo -u postgres psql -c "create role admin with login SUPERUSER password 'admin';"
-          sudo -u postgres createdb online_store
+          
 
   tests:
     runs-on: ubuntu-18.04
@@ -63,8 +59,8 @@ jobs:
           nodejs -v
           sudo apt install npm
           sudo npm install 
-          apt install -y --no-install-recommends postgresql-client
-          apt install postgresql -y postgresql-contrib
+          sudo apt install -y --no-install-recommends postgresql-client
+          sudo apt install postgresql -y postgresql-contrib
           sudo service postgresql start
           sudo -u postgres psql -c "create role admin with login SUPERUSER password 'admin';"
           sudo -u postgres createdb online_store 
