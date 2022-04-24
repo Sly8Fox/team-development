@@ -1,8 +1,8 @@
 class BrandEntity {
     constructor(id, name) {
-        this.id = id
-        this.name = name
+        this.id = id;
+        this.name = name;
     }
 }
 
-module.exports.BrandEntity = BrandEntity
+module.exports.BrandEntity = BrandEntity;
