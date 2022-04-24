@@ -1,15 +1,16 @@
 const {Brand} = require('../models/models')
 const ApiError = require('../error/ApiError');
+const brandFactory = require("../factories/brandFactory")
 
 class BrandController {
     async create(req, res) {
         const {name} = req.body
-        const brand = await Brand.create({name})
+        const brand = await brandFactory.getUseCase().create(name)
         return res.json(brand)
     }
 
     async getAll(req, res) {
-        const brands = await Brand.findAll()
+        const brands = await brandFactory.getUseCase().getAll()
         return res.json(brands)
     }
 
