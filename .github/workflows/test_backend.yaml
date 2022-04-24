@@ -123,11 +123,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: 'backend'
-          
+
       - uses: akhileshns/heroku-deploy@v3.12.12 
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "devicestore"
           heroku_email: "pvha200@mail.ru"
+          branch: "backend"
