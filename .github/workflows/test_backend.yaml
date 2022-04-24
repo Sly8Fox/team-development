@@ -43,7 +43,7 @@ jobs:
           sudo npm install 
           
 
-  tests:
+  test_run:
     runs-on: ubuntu-18.04
 
     steps:
@@ -69,3 +69,48 @@ jobs:
         run: |
           cd server
           (npm run dev&)
+
+
+  linter_check:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: 'backend'
+
+      # Runs a set of commands using the runners shell
+      - name: Install dependencies
+        run: |
+          cd server
+          sudo apt install nodejs 
+          nodejs -v
+          sudo apt install npm
+          sudo npm install 
+  
+      - name: Test run
+        run: |
+          cd server
+          eslint ./
+
+  unit_tests:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: 'backend'
+
+      # Runs a set of commands using the runners shell
+      - name: Install dependencies
+        run: |
+          cd server
+          sudo apt install nodejs 
+          nodejs -v
+          sudo apt install npm
+          sudo npm install 
+  
+      - name: Test run
+        run: |
+          cd server
+          npm run test
