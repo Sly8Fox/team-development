@@ -17,4 +17,4 @@ class brandRepository {
 
 }
 
-module.exports = new brandRepository()
+module.exports.brandRepository = brandRepository

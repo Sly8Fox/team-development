@@ -1,15 +1,19 @@
 // import {brandRepository} from "../repository/brandRepository";
-const brandRepository = require("../repository/brandRepository")
+
 
 class BrandUseCases {
 
+    constructor(rep) {
+        this.rep = rep
+    }
+
     async getAll() {
-        return await brandRepository.getAll()
+        return await this.rep.getAll()
     }
 
     async create(name) {
-        return await brandRepository.create(name)
+        return await this.rep.create(name)
     }
 }
 
-module.exports = new BrandUseCases()
+module.exports.BrandUseCases = BrandUseCases

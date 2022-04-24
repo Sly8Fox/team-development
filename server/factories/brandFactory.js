@@ -1,13 +1,15 @@
-const BrandUseCases = require("../useCases/brandUseCases")
+const {BrandUseCases} = require("../useCases/brandUseCases")
+const {brandRepository} = require("../repository/brandRepository")
 
 class brandFactory {
-    async getUseCase() {
-        return await BrandUseCases.getAll()
+
+    getUseCase() {
+        return new BrandUseCases(new brandRepository())
     }
 
-    async postUseCase(name) {
-        return await BrandUseCases.create(name)
-    }
+    // async postUseCase(name) {
+    //     return await BrandUseCases.create(name)
+    // }
 }
 
 module.exports = new brandFactory()
