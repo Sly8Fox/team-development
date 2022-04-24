@@ -45,6 +45,7 @@ jobs:
 
   test_run:
     runs-on: ubuntu-18.04
+    needs: [build]
 
     steps:
       - uses: actions/checkout@v2
@@ -73,6 +74,7 @@ jobs:
 
   linter_check:
     runs-on: ubuntu-18.04
+    needs: [test_run]
 
     steps:
       - uses: actions/checkout@v2
@@ -95,7 +97,8 @@ jobs:
 
   unit_tests:
     runs-on: ubuntu-18.04
-
+    needs: [linter_check]
+    
     steps:
       - uses: actions/checkout@v2
         with:
@@ -114,3 +117,15 @@ jobs:
         run: |
           cd server
           npm run test
+
+deploy:
+    runs-on: ubuntu-18.04
+    needs: [unit_tests]
+    
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "sarah-oo"
+          heroku_email: "sarahchimao@gmail.com"
