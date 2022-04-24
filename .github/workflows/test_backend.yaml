@@ -120,12 +120,11 @@ jobs:
 
   deploy:
     runs-on: ubuntu-18.04
-    needs: [unit_tests]
 
     steps:
       - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 
+      - uses: Sly8Fox/heroku-deploy@v3.12.12 
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "sarah-oo"
-          heroku_email: "sarahchimao@gmail.com"
+          heroku_app_name: "devicestore"
+          heroku_email: "pvha200@mail.ru"
