@@ -127,6 +127,6 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12 
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "devicestore"
+          heroku_app_name: "device-store-bmstu"
           heroku_email: "pvha200@mail.ru"
-          branch: "backend"
+          remote_branch: "backend"
