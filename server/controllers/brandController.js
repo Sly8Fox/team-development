@@ -9,7 +9,7 @@ class BrandController {
 
     async getAll(req, res) {
         const brands = await brandFactory.getUseCase().getAll();
-        return res.json(brands);
+        return res.json(brands)
     }
 
 }
