@@ -2,6 +2,7 @@ const uuid = require('uuid')
 const path = require('path');
 const {Device, DeviceInfo} = require('../models/models')
 const ApiError = require('../error/ApiError');
+const fs = require("fs");
 
 class DeviceController {
     async create(req, res, next) {
@@ -9,7 +10,14 @@ class DeviceController {
             let {name, price, brandId, typeId, info} = req.body
             const {img} = req.files
             let fileName = uuid.v4() + ".jpg"
-            img.mv(path.resolve(__dirname, '..', 'static', fileName))
+
+            const filePath = path.resolve(__dirname, '..', 'static');
+            if (!fs.existsSync(filePath)) {
+                fs.mkdirSync(filePath, {recursive: true});
+            }
+            fs.writeFileSync(path.join(filePath, fileName), img.data);
+
+            // img.mv(path.resolve(__dirname, '..', 'static', fileName))
             const device = await Device.create({name, price, brandId, typeId, img: fileName});
 
             if (info) {
