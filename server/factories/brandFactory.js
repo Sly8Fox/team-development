@@ -1,10 +1,10 @@
-const {BrandUseCases} = require("../useCases/brandUseCases")
-const {brandRepository} = require("../repository/brandRepository")
+const {BrandUseCases} = require("../useCases/brandUseCases");
+const {brandRepository} = require("../repository/brandRepository");
 
 class brandFactory {
 
     getUseCase() {
-        return new BrandUseCases(new brandRepository())
+        return new BrandUseCases(new brandRepository());
     }
 
     // async postUseCase(name) {
@@ -12,4 +12,4 @@ class brandFactory {
     // }
 }
 
-module.exports = new brandFactory()
+module.exports = new brandFactory();

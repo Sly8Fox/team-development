@@ -4,16 +4,17 @@
 class BrandUseCases {
 
     constructor(rep) {
-        this.rep = rep
+        this.rep = rep;
     }
 
     async getAll() {
-        return await this.rep.getAll()
+        return await this.rep.getAll();
     }
 
     async create(name) {
-        return await this.rep.create(name)
+        return await this.rep.create(name);
     }
+    
 }
 
-module.exports.BrandUseCases = BrandUseCases
+module.exports.BrandUseCases = BrandUseCases;
