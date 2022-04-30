@@ -2,4 +2,3 @@ node_modules/
 .DS_Store
 .idea/
 server/static/
-package-lock.json
