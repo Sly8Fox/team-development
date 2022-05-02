@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: db.js</title>
+    <title>JSDoc: Source: middleware/authMiddleware.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: db.js</h1>
+    <h1 class="page-title">Source: middleware/authMiddleware.js</h1>
 
     
 
@@ -26,31 +26,31 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const {Sequelize} = require("sequelize");
-
-
+            <pre class="prettyprint source linenums"><code>const jwt = require("jsonwebtoken");
 /**
- *
- * Модуль для подключения к БД,
- * использующий sequelize и принимающий все параметры
- *  из файла .env
- *  @module
+ * @module authMiddleware
+ * @function
+ * @param req {Object} - Express Запрос
+ * @param res {Object} - Express Ответ
+ * @param {Function} next - Express next middleware function
+ * @returns {undefined}
  */
-
-/**
- * @param {string} DB_NAME - Название БД
- */
-module.exports = new Sequelize(
-
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
-    {
-        dialect: "postgres",
-        host: process.env.DB_HOST,
-        port: process.env.DB_PORT
+module.exports = function (req, res, next) {
+    if (req.method === "OPTIONS") {
+        next();
     }
-);
+    try {
+        const token = req.headers.authorization.split(" ")[1]; // Bearer asfasnfkajsfnjk
+        if (!token) {
+            return res.status(401).json({message: "Не авторизован"});
+        }
+        const decoded = jwt.verify(token, process.env.SECRET_KEY);
+        req.user = decoded;
+        next();
+    } catch (e) {
+        res.status(401).json({message: "Не авторизован"});
+    }
+};
 </code></pre>
         </article>
     </section>

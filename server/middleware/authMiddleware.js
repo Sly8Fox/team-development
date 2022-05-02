@@ -1,5 +1,12 @@
 const jwt = require("jsonwebtoken");
-
+/**
+ * @module authMiddleware
+ * @function
+ * @param req {Object} - Express Запрос
+ * @param res {Object} - Express Ответ
+ * @param {Function} next - Express next middleware function
+ * @returns {undefined}
+ */
 module.exports = function (req, res, next) {
     if (req.method === "OPTIONS") {
         next();

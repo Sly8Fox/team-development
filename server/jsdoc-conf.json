@@ -6,12 +6,13 @@
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_",
     "include": ["./README.md", "./"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules", "docs", "custom-template"]
   },
   "recurseDepth": 10,
   "opts": {
     "destination": "./docs/",
-    "recurse": true
+    "recurse": true,
+    "template": "custom-template"
   },
   "plugins": ["plugins/markdown"],
   "templates": {

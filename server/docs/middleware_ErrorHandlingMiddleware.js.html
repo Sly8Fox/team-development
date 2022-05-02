@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: db.js</title>
+    <title>JSDoc: Source: middleware/ErrorHandlingMiddleware.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: db.js</h1>
+    <h1 class="page-title">Source: middleware/ErrorHandlingMiddleware.js</h1>
 
     
 
@@ -26,31 +26,21 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const {Sequelize} = require("sequelize");
-
-
-/**
- *
- * Модуль для подключения к БД,
- * использующий sequelize и принимающий все параметры
- *  из файла .env
- *  @module
- */
+            <pre class="prettyprint source linenums"><code>const ApiError = require("../error/ApiError");
 
 /**
- * @param {string} DB_NAME - Название БД
+ * @module errorMiddleware
+ * @param err
+ * @param req
+ * @param res
+ * @returns {*}
  */
-module.exports = new Sequelize(
-
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
-    {
-        dialect: "postgres",
-        host: process.env.DB_HOST,
-        port: process.env.DB_PORT
+module.exports = function (err, req, res) {
+    if (err instanceof ApiError) {
+        return res.status(err.status).json({message: err.message});
     }
-);
+    return res.status(500).json({message: "Непредвиденная ошибка!"});
+};
 </code></pre>
         </article>
     </section>

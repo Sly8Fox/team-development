@@ -29,6 +29,9 @@ app.use(fileUpload({}));
 app.use("/api", router);
 
 // Обработка ошибок, последний Middleware
+/**
+ * @link {module: errorMiddleware}
+ */
 app.use(errorHandler);
 
 const start = async () => {

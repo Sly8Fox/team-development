@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: db.js</title>
+    <title>JSDoc: Module: errorMiddleware</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,43 +17,52 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: db.js</h1>
+    <h1 class="page-title">Module: errorMiddleware</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>const {Sequelize} = require("sequelize");
+        
+    
+</header>
 
+<article>
+    <div class="container-overview">
+    
+        
 
-/**
- *
- * Модуль для подключения к БД,
- * использующий sequelize и принимающий все параметры
- *  из файла .env
- *  @module
- */
+        
+    
+    </div>
 
-/**
- * @param {string} DB_NAME - Название БД
- */
-module.exports = new Sequelize(
+    
 
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
-    {
-        dialect: "postgres",
-        host: process.env.DB_HOST,
-        port: process.env.DB_PORT
-    }
-);
-</code></pre>
-        </article>
-    </section>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
