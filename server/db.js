@@ -5,15 +5,18 @@ const {Sequelize} = require("sequelize");
  *
  * Модуль для подключения к БД,
  * использующий sequelize и принимающий все параметры
- *  из файла .env
- *  @module
+ * из файла .env
+ * @module
  */
 
 /**
- * @param {string} DB_NAME - Название БД
+ *
+ * @type {Sequelize}
  */
 module.exports = new Sequelize(
-
+    /**
+     * @param {string} DB_NAME - Название БД
+     */
     process.env.DB_NAME,
     process.env.DB_USER,
     process.env.DB_PASSWORD,

@@ -5,10 +5,10 @@ const brandFactory = require("../factories/brandFactory");
  */
 class BrandController {
     /**
-     *
-     * @param req {object} - запрос
-     * @param res {object} - ответ
-     * @returns {Promise<*>}
+     * Добавление нового бренда в БД
+     * @param req {Object} - Express запрос с названием бренда
+     * @param res {Object} - Express ответ
+     * @returns {Object} - Express ответ в виде JSON, содержаний информацию о сущности бренда
      */
     async create(req, res) {
         const {name} = req.body;
@@ -17,10 +17,10 @@ class BrandController {
     }
 
     /**
-     *
-     * @param req
-     * @param res
-     * @returns {Promise<*>}
+     * Извлечение всех брендов из БД
+     * @param req {Object} - Express Запрос
+     * @param res {Object} - Express Ответ
+     * @returns {Object} - Express ответ в виде JSON, содержаний информацию о всех брендах
      */
     async getAll(req, res) {
         const brands = await brandFactory.getUseCase().getAll();

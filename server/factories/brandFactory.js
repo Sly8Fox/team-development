@@ -7,9 +7,6 @@ class brandFactory {
         return new BrandUseCases(new brandRepository());
     }
 
-    // async postUseCase(name) {
-    //     return await BrandUseCases.create(name)
-    // }
 }
 
 module.exports = new brandFactory();

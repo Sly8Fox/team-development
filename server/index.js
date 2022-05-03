@@ -12,8 +12,8 @@ const path = require("path");
  */
 
 /**
- * @type {number}
- * @description Номер порта, который слушает приложение
+ * @property {number} PORT - Номер порта, который слушает приложение
+ * @see {module: authMiddleware}
  */
 const PORT = process.env.PORT || 5000;
 
@@ -30,9 +30,10 @@ app.use("/api", router);
 
 // Обработка ошибок, последний Middleware
 /**
- * @link {module: errorMiddleware}
+ * rtr
+ * @see {ApiError}
  */
-app.use(errorHandler);
+app.use(errorHandler.function);
 
 const start = async () => {
     try {
