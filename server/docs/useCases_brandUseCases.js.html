@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: entities/brand.js</title>
+    <title>JSDoc: Source: useCases/brandUseCases.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: entities/brand.js</h1>
+    <h1 class="page-title">Source: useCases/brandUseCases.js</h1>
 
     
 
@@ -27,29 +27,37 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Класс, описывающий сущность бренда (служит для реализации паттерна "Репозиторий")
+ * Класс, реализующий логику взаимодействия с брендами
  */
-class BrandEntity {
+class BrandUseCases {
     /**
      *
-     * @param id {number} - идентификатор бренда для БД
-     * @param name {string} - название бренда
+     * @param rep {brandRepository|Any} - Объект, позволяющий осуществить взаимодействие с ORM
      */
-    constructor(id, name) {
-        /**
-         * @property {number} id - идентификатор бренда для БД
-         */
-        this.id = id;
-        /**
-         *
-         * @property name {string} - название бренда
-         */
-        this.name = name;
+    constructor(rep) {
+        this.rep = rep;
     }
+
+    /**
+     * Извлечение всех записей о брендах из БД
+     * @returns {BrandEntity[]}
+     */
+    async getAll() {
+        return await this.rep.getAll();
+    }
+
+    /**
+     * Добавление нового бренда в БД
+     * @param name {string} - Название бренда
+     * @returns {BrandEntity}
+     */
+    async create(name) {
+        return await this.rep.create(name);
+    }
+    
 }
 
-module.exports.BrandEntity = BrandEntity;
-</code></pre>
+module.exports.BrandUseCases = BrandUseCases;</code></pre>
         </article>
     </section>
 

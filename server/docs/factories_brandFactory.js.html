@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: entities/brand.js</title>
+    <title>JSDoc: Source: factories/brandFactory.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: entities/brand.js</h1>
+    <h1 class="page-title">Source: factories/brandFactory.js</h1>
 
     
 
@@ -26,30 +26,22 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Класс, описывающий сущность бренда (служит для реализации паттерна "Репозиторий")
+            <pre class="prettyprint source linenums"><code>const {BrandUseCases} = require("../useCases/brandUseCases");
+const {brandRepository} = require("../repository/brandRepository");
+
+/**
+ * Фабрика для разных реализаций BrandUseCase-классов
  */
-class BrandEntity {
+class brandFactory {
     /**
-     *
-     * @param id {number} - идентификатор бренда для БД
-     * @param name {string} - название бренда
+     * @returns {BrandUseCases}
      */
-    constructor(id, name) {
-        /**
-         * @property {number} id - идентификатор бренда для БД
-         */
-        this.id = id;
-        /**
-         *
-         * @property name {string} - название бренда
-         */
-        this.name = name;
+    getUseCase() {
+        return new BrandUseCases(new brandRepository());
     }
 }
 
-module.exports.BrandEntity = BrandEntity;
-</code></pre>
+module.exports = new brandFactory();</code></pre>
         </article>
     </section>
 

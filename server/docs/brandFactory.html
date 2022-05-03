@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: entities/brand.js</title>
+    <title>JSDoc: Class: brandFactory</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,41 +17,243 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: entities/brand.js</h1>
+    <h1 class="page-title">Class: brandFactory</h1>
 
     
 
 
 
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Класс, описывающий сущность бренда (служит для реализации паттерна "Репозиторий")
- */
-class BrandEntity {
-    /**
-     *
-     * @param id {number} - идентификатор бренда для БД
-     * @param name {string} - название бренда
-     */
-    constructor(id, name) {
-        /**
-         * @property {number} id - идентификатор бренда для БД
-         */
-        this.id = id;
-        /**
-         *
-         * @property name {string} - название бренда
-         */
-        this.name = name;
-    }
-}
 
-module.exports.BrandEntity = BrandEntity;
-</code></pre>
-        </article>
-    </section>
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>brandFactory<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>Фабрика для разных реализаций BrandUseCase-классов</p></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="brandFactory"><span class="type-signature"></span>new brandFactory<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="factories_brandFactory.js.html">factories/brandFactory.js</a>, <a href="factories_brandFactory.js.html#line7">line 7</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getUseCase"><span class="type-signature"></span>getUseCase<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="BrandUseCases.html">BrandUseCases</a>}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="factories_brandFactory.js.html">factories/brandFactory.js</a>, <a href="factories_brandFactory.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="BrandUseCases.html">BrandUseCases</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

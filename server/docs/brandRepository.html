@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: controllers/userController</title>
+    <title>JSDoc: Class: brandRepository</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: controllers/userController</h1>
+    <h1 class="page-title">Class: brandRepository</h1>
 
     
 
@@ -28,8 +28,9 @@
 
 <header>
     
+        <h2><span class="attribs"><span class="type-signature"></span></span>brandRepository<span class="signature">()</span><span class="type-signature"></span></h2>
         
-            
+            <div class="class-description"><p>Служит прослойкой между ORM и системой</p></div>
         
     
 </header>
@@ -38,11 +39,16 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Контроллер для пользователей</p></div>
-        
 
-        
-            
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="brandRepository"><span class="type-signature"></span>new brandRepository<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
 
 
 
@@ -87,7 +93,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_userController.js.html">controllers/userController.js</a>, <a href="controllers_userController.js.html#line5">line 5</a>
+        <a href="repository_brandRepository.js.html">repository/brandRepository.js</a>, <a href="repository_brandRepository.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -117,7 +123,6 @@
 
 
 
-        
     
     </div>
 
@@ -125,13 +130,6 @@
 
     
 
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="module-controllers_userController-UserController.html">UserController</a></dt>
-            <dd></dd>
-        </dl>
     
 
     
@@ -151,7 +149,7 @@
     
 
     
-    <h4 class="name" id="~generateJwt"><span class="type-signature">(inner) </span>generateJwt<span class="signature">(id, email, role)</span><span class="type-signature"> &rarr; {Any|undefined}</span></h4>
+    <h4 class="name" id="create"><span class="type-signature">(async) </span>create<span class="signature">(name)</span><span class="type-signature"> &rarr; {<a href="BrandEntity.html">BrandEntity</a>}</span></h4>
     
 
     
@@ -159,7 +157,7 @@
 
 
 <div class="description">
-    <p>Функция, генериррующая JWT-токен</p>
+    <p>Добавление нового бренда в БД</p>
 </div>
 
 
@@ -195,30 +193,7 @@
 
         <tr>
             
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Идентификатор пользователя</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>email</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
@@ -234,30 +209,7 @@
 
             
 
-            <td class="description last"><p>email пользователя</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>role</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>поль пользователя</p></td>
+            <td class="description last"><p>Название бренда</p></td>
         </tr>
 
     
@@ -298,7 +250,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_userController.js.html">controllers/userController.js</a>, <a href="controllers_userController.js.html#line17">line 17</a>
+        <a href="repository_brandRepository.js.html">repository/brandRepository.js</a>, <a href="repository_brandRepository.js.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -334,10 +286,274 @@
     </dt>
     <dd>
         
-<span class="param-type">Any</span>
-|
+<span class="param-type"><a href="BrandEntity.html">BrandEntity</a></span>
 
-<span class="param-type">undefined</span>
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="decode"><span class="type-signature"></span>decode<span class="signature">(brand)</span><span class="type-signature"> &rarr; {<a href="BrandEntity.html">BrandEntity</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Преобразование объекта ORM в объект системы</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>brand</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Brand</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Объект из ORM</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="repository_brandRepository.js.html">repository/brandRepository.js</a>, <a href="repository_brandRepository.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>Сущность бренда</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="BrandEntity.html">BrandEntity</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getAll"><span class="type-signature">(async) </span>getAll<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;<a href="BrandEntity.html">BrandEntity</a>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Извлечение всех записей о брендах из БД</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="repository_brandRepository.js.html">repository/brandRepository.js</a>, <a href="repository_brandRepository.js.html#line21">line 21</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;<a href="BrandEntity.html">BrandEntity</a>></span>
 
 
     </dd>

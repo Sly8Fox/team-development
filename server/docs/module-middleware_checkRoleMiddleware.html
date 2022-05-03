@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: controllers/userController</title>
+    <title>JSDoc: Module: middleware/checkRoleMiddleware</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: controllers/userController</h1>
+    <h1 class="page-title">Module: middleware/checkRoleMiddleware</h1>
 
     
 
@@ -29,8 +29,6 @@
 <header>
     
         
-            
-        
     
 </header>
 
@@ -38,84 +36,6 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Контроллер для пользователей</p></div>
-        
-
-        
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_userController.js.html">controllers/userController.js</a>, <a href="controllers_userController.js.html#line5">line 5</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         
     
@@ -125,13 +45,6 @@
 
     
 
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="module-controllers_userController-UserController.html">UserController</a></dt>
-            <dd></dd>
-        </dl>
     
 
     
@@ -151,7 +64,7 @@
     
 
     
-    <h4 class="name" id="~generateJwt"><span class="type-signature">(inner) </span>generateJwt<span class="signature">(id, email, role)</span><span class="type-signature"> &rarr; {Any|undefined}</span></h4>
+    <h4 class="name" id=".function"><span class="type-signature">(static) </span>function<span class="signature">(role)</span><span class="type-signature"> &rarr; {myFunction}</span></h4>
     
 
     
@@ -159,7 +72,7 @@
 
 
 <div class="description">
-    <p>Функция, генериррующая JWT-токен</p>
+    <p>Функция, проверяющая, авторизован ли пользователь и его роль на доступ к тем или иным действиям</p>
 </div>
 
 
@@ -195,52 +108,6 @@
 
         <tr>
             
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Идентификатор пользователя</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>email</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>email пользователя</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>role</code></td>
             
 
@@ -257,7 +124,7 @@
 
             
 
-            <td class="description last"><p>поль пользователя</p></td>
+            <td class="description last"><p>Название роли</p></td>
         </tr>
 
     
@@ -298,7 +165,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_userController.js.html">controllers/userController.js</a>, <a href="controllers_userController.js.html#line17">line 17</a>
+        <a href="middleware_checkRoleMiddleware.js.html">middleware/checkRoleMiddleware.js</a>, <a href="middleware_checkRoleMiddleware.js.html#line20">line 20</a>
     </li></ul></dd>
     
 
@@ -334,10 +201,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Any</span>
-|
-
-<span class="param-type">undefined</span>
+<span class="param-type">myFunction</span>
 
 
     </dd>
@@ -352,6 +216,213 @@
         
     
 
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+
+    
+
+    
+    <h4 class="name" id="~myFunction"><span class="type-signature"></span>myFunction<span class="signature">(req, res, next)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express Запрос</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express Ответ</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>next</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express next middleware function</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="middleware_checkRoleMiddleware.js.html">middleware/checkRoleMiddleware.js</a>, <a href="middleware_checkRoleMiddleware.js.html#line7">line 7</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>Express Ответ</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            
     
 
     

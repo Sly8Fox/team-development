@@ -1,7 +1,11 @@
 const brandFactory = require("../factories/brandFactory");
+/**
+ * Контроллер для брендов
+ * @module
+ */
 
 /**
- *
+ * Контроллер для брендов
  */
 class BrandController {
     /**
@@ -17,7 +21,7 @@ class BrandController {
     }
 
     /**
-     * Извлечение всех брендов из БД
+     * Извлечение всех записей о брендах из БД
      * @param req {Object} - Express Запрос
      * @param res {Object} - Express Ответ
      * @returns {Object} - Express ответ в виде JSON, содержаний информацию о всех брендах

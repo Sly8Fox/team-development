@@ -20,8 +20,8 @@ class ApiError extends Error{
     }
 
     /**
-     * Ошибка 404
-     * @param message {string}
+     * Ошибка 404 - Not Found
+     * @param message {string} - Описание ошибки
      * @returns {ApiError}
      */
     static badRequest(message) {
@@ -29,8 +29,8 @@ class ApiError extends Error{
     }
 
     /**
-     * Ошибка 500
-     * @param message - с
+     * Ошибка 500 - Internal Server Error
+     * @param message {string} - Описание ошибки
      * @returns {ApiError}
      */
     static internal(message) {
@@ -38,8 +38,8 @@ class ApiError extends Error{
     }
 
     /**
-     * ошибка 403
-     * @param message
+     * ошибка 403 - Forbidden
+     * @param message {string} - Описание ошибки
      * @returns {ApiError}
      */
     static forbidden(message) {

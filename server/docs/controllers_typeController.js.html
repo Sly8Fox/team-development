@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: entities/brand.js</title>
+    <title>JSDoc: Source: controllers/typeController.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: entities/brand.js</h1>
+    <h1 class="page-title">Source: controllers/typeController.js</h1>
 
     
 
@@ -26,29 +26,43 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Класс, описывающий сущность бренда (служит для реализации паттерна "Репозиторий")
+            <pre class="prettyprint source linenums"><code>const {Type} = require("../models/models");
+
+/**
+ * Контроллер для типов устройств
+ * @module
  */
-class BrandEntity {
+
+/**
+ * Контроллер для типов устройств
+ */
+class TypeController {
     /**
-     *
-     * @param id {number} - идентификатор бренда для БД
-     * @param name {string} - название бренда
+     * Добавление нового типа устройств
+     * @param req {Object} - Express Запрос с названием типа
+     * @param res {Object} - Express Ответ
+     * @returns {Object} - Express ответ в виде JSON, содержаний информацию о созданном типе
      */
-    constructor(id, name) {
-        /**
-         * @property {number} id - идентификатор бренда для БД
-         */
-        this.id = id;
-        /**
-         *
-         * @property name {string} - название бренда
-         */
-        this.name = name;
+    async create(req, res) {
+        const {name} = req.body;
+        const type = await Type.create({name});
+        return res.json(type);
     }
+
+    /**
+     * Извлечение всех записей о типах устройств из БД
+     * @param req {Object} - Express Запрос
+     * @param res {Object} - Express Ответ
+     * @returns {Object} - Express ответ в виде JSON, содержаний информацию о всех типах
+     */
+    async getAll(req, res) {
+        const types = await Type.findAll();
+        return res.json(types);
+    }
+
 }
 
-module.exports.BrandEntity = BrandEntity;
+module.exports = new TypeController();
 </code></pre>
         </article>
     </section>

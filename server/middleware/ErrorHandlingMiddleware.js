@@ -5,10 +5,11 @@ const ApiError = require("../error/ApiError");
 
 module.exports = {
     /**
+     * Обработчик ошибок
      * @param err {ApiError|Any}
      * @param req {Object} - Express Запрос
      * @param res {Object} - Express Ответ
-     * @param next {Function}
+     * @param next {Function} - Express next middleware function
      * @returns {Object} - Express Ответ
      */
     function (err, req, res, next) { // eslint-disable-line no-unused-vars

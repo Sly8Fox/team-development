@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: entities/brand.js</title>
+    <title>JSDoc: Source: repository/brandRepository.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: entities/brand.js</h1>
+    <h1 class="page-title">Source: repository/brandRepository.js</h1>
 
     
 
@@ -26,30 +26,48 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Класс, описывающий сущность бренда (служит для реализации паттерна "Репозиторий")
+            <pre class="prettyprint source linenums"><code>const {BrandEntity} = require("../entities/brand");
+const {Brand} = require("../models/models");
+
+/**
+ * Служит прослойкой между ORM и системой
  */
-class BrandEntity {
+class brandRepository {
     /**
-     *
-     * @param id {number} - идентификатор бренда для БД
-     * @param name {string} - название бренда
+     * Преобразование объекта ORM в объект системы
+     * @param brand {Brand} - Объект из ORM
+     * @returns {BrandEntity} - Сущность бренда
      */
-    constructor(id, name) {
-        /**
-         * @property {number} id - идентификатор бренда для БД
-         */
-        this.id = id;
-        /**
-         *
-         * @property name {string} - название бренда
-         */
-        this.name = name;
+    decode(brand) {
+        return new BrandEntity(brand.id, brand.name);
     }
+
+    /**
+     * Извлечение всех записей о брендах из БД
+     * @returns {BrandEntity[]}
+     */
+    async getAll () {
+        // await Brand.create({"name": "test"})
+        const brands = await Brand.findAll();
+        // await Brand.destroy({where: {"name": "test"}})
+        let array = [];
+        brands.forEach(i => array.push(this.decode(i)));
+        return array;
+    }
+
+    /**
+     * Добавление нового бренда в БД
+     * @param name {string} - Название бренда
+     * @returns {BrandEntity}
+     */
+    async create (name) {
+        const sequeBrand = await Brand.create({name});
+        return this.decode(sequeBrand);
+    }
+
 }
 
-module.exports.BrandEntity = BrandEntity;
-</code></pre>
+module.exports.brandRepository = brandRepository;</code></pre>
         </article>
     </section>
 

@@ -13,26 +13,19 @@ const path = require("path");
 
 /**
  * @property {number} PORT - Номер порта, который слушает приложение
- * @see {module: authMiddleware}
  */
 const PORT = process.env.PORT || 5000;
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-/**
- *
- */
+
 app.use(express.static(path.resolve(__dirname, "static")));
 
 app.use(fileUpload({}));
 app.use("/api", router);
 
 // Обработка ошибок, последний Middleware
-/**
- * rtr
- * @see {ApiError}
- */
 app.use(errorHandler.function);
 
 const start = async () => {

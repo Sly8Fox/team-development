@@ -3,15 +3,16 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const {User, Basket} = require("../models/models");
 /**
+ * Контроллер для пользователей
  * @module
  */
 
 /**
- *
- * @param id
- * @param email
- * @param role
- * @returns {*}
+ * Функция, генериррующая JWT-токен
+ * @param id {number} - Идентификатор пользователя
+ * @param email {string} - email пользователя
+ * @param role {string} - поль пользователя
+ * @returns {Any|undefined}
  */
 const generateJwt = (id, email, role) => {
     return jwt.sign(
@@ -22,9 +23,16 @@ const generateJwt = (id, email, role) => {
 };
 
 /**
- *
+ * Контроллер для пользователей
  */
 class UserController {
+    /**
+     * Регистрация пользователя
+     * @param req {Object} - Express Запрос
+     * @param res {Object} - Express Ответ
+     * @param next {Function} - Express next middleware function
+     * @returns {Object} - Express ответ в виде JSON с JWT-токеном
+     */
     async registration(req, res, next) {
         const {email, password, role} = req.body;
         if (!email || !password) {
@@ -41,6 +49,13 @@ class UserController {
         return res.json({token});
     }
 
+    /**
+     * Вход пользователя (проверка по почте и паролю)
+     * @param req {Object} - Express Запрос
+     * @param res {Object} - Express Ответ
+     * @param next {Function} - Express next middleware function
+     * @returns {Object} - Express ответ в виде JSON с JWT-токеном
+     */
     async login(req, res, next) {
         const {email, password} = req.body;
         const user = await User.findOne({where: {email}});
@@ -56,6 +71,12 @@ class UserController {
         return res.json({token});
     }
 
+    /**
+     * Генерация токена и отправка в качестве ответа
+     * @param req {Object} - Express Запрос
+     * @param res {Object} - Express Ответ
+     * @returns {Object} - Express ответ в виде JSON с JWT-токеном
+     */
     async check(req, res) {
         const token = generateJwt(req.user.id, req.user.email, req.user.role);
         return res.json({token});
